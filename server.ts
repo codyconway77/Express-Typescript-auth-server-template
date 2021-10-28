@@ -1,6 +1,7 @@
 import express from 'express';
 const app = express();
 const PORT = process.env.NODE_ENV === 'production' ? process.env.PORT : 8000;
+import mongoSanitize from 'express-mongo-sanitize'
 //@ts-ignore
 import dbConnector from './config/db';
 
@@ -8,6 +9,7 @@ import dbConnector from './config/db';
 dbConnector();
 
 //Middleware
+app.use(mongoSanitize());
 app.use(express.json());
 
 //Routes

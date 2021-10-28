@@ -15,7 +15,7 @@ interface IUserRequest extends Express.Request {
 }
 
 router.post('/register', async (req, res) => {
-    const { username, email, password } = req.body
+    const { username, email, password} = req.body
     if (!username || !email || !password) {
         return res.status(400).json({ msg: 'Please enter all fields.'});
     }
